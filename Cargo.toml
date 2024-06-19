@@ -1,0 +1,14 @@
+[package]
+name = "rusty"
+edition = "2021"
+version = "0.1.0"
+authors = ["Asman Mirza <asman@otmalse.in>"]
+description = "Rusty is a versatile command-line tool designed to assist with various tasks such as pinging hosts, downloading files, checking URL statuses, performing traceroutes, scanning ports, looking up DNS information, retrieving IP details and so on."
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = { version = "4.5.7", features = ["derive", "cargo"] }
+colored = "2.1.0"
+comfy-table = "7.1.1"
+
