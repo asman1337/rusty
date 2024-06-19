@@ -1,14 +1,13 @@
-use std::net::IpAddr;
+use std::net::{IpAddr, ToSocketAddrs};
 use std::time::{Duration, Instant};
-
 use comfy_table::{Cell, modifiers::UTF8_ROUND_CORNERS, presets::UTF8_FULL, Table};
 use ping::ping;
 
 pub fn execute(host: &str, count: u32) {
-    let addr: IpAddr = match host.parse() {
+    let addr = match resolve_host(host) {
         Ok(addr) => addr,
         Err(e) => {
-            eprintln!("Invalid IP address: {}", e);
+            eprintln!("Failed to resolve host {}: {}", host, e);
             return;
         }
     };
@@ -50,4 +49,18 @@ pub fn execute(host: &str, count: u32) {
     }
 
     println!("{}", table);
+}
+
+fn resolve_host(host: &str) -> Result<IpAddr, String> {
+    let addrs = match (host, 0).to_socket_addrs() {
+        Ok(addrs) => addrs,
+        Err(e) => return Err(format!("Failed to resolve host: {}", e)),
+    };
+
+    addrs.filter_map(|addr| match addr {
+        std::net::SocketAddr::V4(v4) => Some(IpAddr::V4(v4.ip().clone())),
+        std::net::SocketAddr::V6(v6) => Some(IpAddr::V6(v6.ip().clone())),
+    })
+        .next()
+        .ok_or_else(|| "No valid IP address found".to_string())
 }
