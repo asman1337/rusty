@@ -25,8 +25,8 @@ fn main() {
     let cli = Cli::parse();
 
     match &cli.command {
-        Commands::Ping { host } => {
-            ping::execute(host);
+        Commands::Ping { host, count } => {
+            ping::execute(host, *count);
         }
         Commands::Download { url } => {
             download::execute(url);

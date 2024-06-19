@@ -41,7 +41,7 @@ Rusty provides several commands to perform different network-related tasks. Belo
 Send ICMP echo requests to a host:
 
 ```sh
-rusty --ping example.com
+rusty --ping 8.8.8.8 -c 10
 ```
 
 ### Download

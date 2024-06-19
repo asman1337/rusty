@@ -18,6 +18,8 @@ pub enum Commands {
     Ping {
         #[arg(value_name = "host")]
         host: String,
+        #[arg(short, long, default_value_t = 4)]
+        count: u32,
     },
     #[command(name = "--download", about = "Download a file from a URL")]
     Download {
