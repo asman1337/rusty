@@ -51,4 +51,6 @@ pub enum Commands {
         #[arg(value_name = "ip")]
         ip: String,
     },
+    #[command(name = "--sin", about = "Display system information")]
+    SystemInfo,
 }

@@ -4,6 +4,7 @@ use cli::Cli;
 use commands::{dns_lookup, download, ip_info, ping, port_scan, status_check, traceroute};
 
 use crate::cli::Commands;
+use crate::commands::system_info;
 
 mod cli;
 mod commands;
@@ -45,6 +46,9 @@ fn main() {
         }
         Commands::IpInfo { ip } => {
             ip_info::execute(ip);
+        }
+        Commands::SystemInfo => {
+            system_info::execute();
         }
     }
 }

@@ -5,3 +5,4 @@ pub mod traceroute;
 pub mod port_scan;
 pub mod dns_lookup;
 pub mod ip_info;
+pub mod system_info;
