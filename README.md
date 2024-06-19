@@ -1,7 +1,3 @@
-Sure, here's a complete README for Rusty, designed to be clear and informative while also easy to update as new features are added:
-
----
-
 # Rusty
 
 ![Rusty Banner](rusty.png)
