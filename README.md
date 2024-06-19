@@ -1,5 +1,3 @@
-# Rusty
-
 ![Rusty Banner](rusty.png)
 
 Rusty is a versatile command-line tool designed to assist with various tasks such as pinging hosts, downloading files, checking URL statuses, performing traceroutes, scanning ports, looking up DNS information, retrieving IP details, and more. Built in Rust for speed and reliability, Rusty is your go-to utility for troubleshooting and information gathering.
